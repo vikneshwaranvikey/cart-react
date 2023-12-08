@@ -36,7 +36,7 @@ function Navbars() {
                     </div>
                     <div className={`flex md:block justify-end ${click ? "block" : "hidden"} mt-2`}>
                         <ul className='md:flex md:space-x-8 space-y-4 md:space-y-0 font-semibold'>
-                            <li className='animate-pulse bg-red-500 p-1 rounded-lg'><Link to='/'>ClickHere</Link></li>
+                            <li className='animate-pulse bg-red-500 p-1 rounded-lg'><Link to='/'>Home</Link></li>
                             <li>Account</li>
                             <li>WishList</li>
                             <li >Basket</li>
