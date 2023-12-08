@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const UserCredentials = {
     data: [],
     cart: [],
+    searchTerm: '',
     TotalQuantity: 0,
     Total: 0,
 };
@@ -19,10 +20,13 @@ export const userReducer = createSlice({
         addCart: (state, action) => {
             state.cart.push(action.payload);
             console.log("addCart", action.payload);
+        },
+        setSearchTerm: (state, action) => {
+            state.searchTerm = action.payload;
         }
     },
 });
 
-export const { setData, addCart } = userReducer.actions;
+export const { setData, addCart, setSearchTerm } = userReducer.actions;
 
 export default userReducer.reducer;

@@ -8,7 +8,12 @@ import ProductList from './ProductList';
 function ListingProducts() {
     const { Meta } = Card;
     const dispatch = useDispatch();
-    const users = useSelector(state => state.user.data);//user is store //data is initialState
+    //const users = useSelector(state => state.user.data);//user is store //data is initialState
+    const { data: user, searchTerm } = useSelector(state => state.user);
+
+    const filteredProducts = user.products?.filter(product =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
 
     useEffect(() => {
         dispatch(fetchApi());
@@ -19,9 +24,9 @@ function ListingProducts() {
             <ProductList />
             <section className="w-5/6 mx-auto" id="shop">
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 justify-items-center'>
-                    {users.products?.map((val, index) => {
+                    {filteredProducts.map((val) => {
                         return (
-                            <div key={index}>
+                            <div key={val.id}>
                                 <Card className='bg-gray-300 transform hover:scale-110 transition duration-700 ease-in-out relative' hoverable style={{ width: 240, textAlign: 'center' }} cover={<img className='w-64 h-48' alt="example" src={val.thumbnail} />}>
                                     <Meta title={val.title} description={val.Categories} />
                                     <Button onClick={() => dispatch(addCart(val))} className='mt-4' type="primary" danger>AddCart</Button>
