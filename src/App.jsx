@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Navbars />
         <Routes>
+          <Route path="/" element={<ListingProducts />} />
           <Route path="/cart-react/" element={<ListingProducts />} />
           <Route path="/AddCart" element={<AddCart />} />
         </Routes>
