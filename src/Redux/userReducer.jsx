@@ -7,6 +7,7 @@ const UserCredentials = {
     searchTerm: '',
     TotalQuantity: 0,
     Total: 0,
+    cartCount: 0
 };
 
 export const userReducer = createSlice({
@@ -23,10 +24,14 @@ export const userReducer = createSlice({
         },
         setSearchTerm: (state, action) => {
             state.searchTerm = action.payload;
+        },
+        setCartCount: (state, action) => {
+            state.cartCount = action.payload;
         }
+
     },
 });
 
-export const { setData, addCart, setSearchTerm } = userReducer.actions;
+export const { setData, addCart, setSearchTerm, setCartCount } = userReducer.actions;
 
 export default userReducer.reducer;
